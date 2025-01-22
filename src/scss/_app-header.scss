@@ -13,6 +13,34 @@
     position: relative;
     height: $nav-link-height;
   }
+
+  // Light Theme
+  .theme-light & {
+    background-color: $header-bg-light;
+    color: $text-color-light;
+
+    .nav-link {
+      color: $nav-link-color-light;
+
+      &:hover {
+        color: darken($nav-link-color-light, 10%);
+      }
+    }
+  }
+
+  // Dark Theme
+  .theme-dark & {
+    background-color: $header-bg-dark;
+    color: $text-color-dark;
+
+    .nav-link {
+      color: $nav-link-color-dark;
+
+      &:hover {
+        color: lighten($nav-link-color-dark, 10%);
+      }
+    }
+  }
 }
 
 // Navbar badge
@@ -21,6 +49,18 @@
   top: 9px;
   right: 5px;
   padding: 2px 4px;
-  font-size: .6rem;
+  font-size: 0.6rem;
   font-weight: 400;
+
+  // Light Theme
+  .theme-light & {
+    background-color: $badge-bg-light;
+    color: $badge-text-light;
+  }
+
+  // Dark Theme
+  .theme-dark & {
+    background-color: $badge-bg-dark;
+    color: $badge-text-dark;
+  }
 }
