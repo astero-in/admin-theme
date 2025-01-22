@@ -2,7 +2,7 @@
 const year = new Date().getFullYear();
 ---
 
-<!--begin::Footer-->
+<!--begin::Footer--><!--begin::Footer-->
 <footer class="app-footer">
   <!--begin::To the end-->
   <div class="float-end d-none d-sm-inline">Anything you want</div>
@@ -16,9 +16,9 @@ const year = new Date().getFullYear();
   <button
     id="theme-toggler"
     class="btn btn-default"
-    style="padding: 10px 20px; background-color: #f0f0f0; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; color: #333; transition: background-color 0.3s ease;"
+    style="margin-left:20px; padding: 5px 10px; background-color: #f0f0f0; cursor: pointer; font-size: 16px; color: #333; transition: background-color 0.3s ease;"
   >
-    Toggle Theme
+    <i id="theme-icon" class="bi"></i>
   </button>
   <!--end::Copyright-->
 </footer>
@@ -27,20 +27,24 @@ const year = new Date().getFullYear();
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const themeToggler = document.getElementById("theme-toggler");
-    const savedTheme = localStorage.getItem("theme") || "light";
+    const themeIcon = document.getElementById("theme-icon");
+    const savedTheme = localStorage.getItem("theme") || "dark";
 
-    document.body.classList.add(
-      savedTheme === "dark" ? "theme-dark" : "theme-light",
-    );
+    document.body.setAttribute("data-bs-theme", savedTheme);
+
+    themeIcon.classList.add(savedTheme === "dark" ? "bi-sun" : "bi-moon");
 
     themeToggler.addEventListener("click", () => {
-      const isDarkMode = document.body.classList.contains("theme-dark");
-      const newTheme = isDarkMode ? "theme-light" : "theme-dark";
+      const currentTheme = document.body.getAttribute("data-bs-theme");
+      const newTheme = currentTheme === "dark" ? "light" : "dark";
 
-      document.body.classList.remove("theme-dark", "theme-light");
-      document.body.classList.add(newTheme);
+      document.body.setAttribute("data-bs-theme", newTheme);
+      themeIcon.classList.remove(
+        currentTheme === "dark" ? "bi-sun" : "bi-moon",
+      );
+      themeIcon.classList.add(newTheme === "dark" ? "bi-sun" : "bi-moon");
 
-      localStorage.setItem("theme", isDarkMode ? "light" : "dark");
+      localStorage.setItem("theme", newTheme);
     });
   });
 </script>

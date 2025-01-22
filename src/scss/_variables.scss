@@ -138,38 +138,3 @@ $lte-direct-chat-default-msg-border-color: var(--#{$prefix}border-color) !defaul
 $lte-zindex-app-header: $zindex-fixed + 4 !default;
 $lte-zindex-sidebar: $zindex-fixed + 8 !default;
 $lte-zindex-sidebar-overlay: $lte-zindex-sidebar - 1 !default;
-
-//Dark theme
-// --------------------------------------------------------
-/* Define variables for light and dark themes */
-$light-bg-color: #ffffff;
-$light-text-color: #000000;
-
-$dark-bg-color: #343a40;
-$dark-text-color: #ffffff;
-
-/* Light skin */
-.skin-light {
-  background-color: $light-bg-color;
-  color: $light-text-color;
-
-  .app-header {
-    background-color: lighten($light-bg-color, 10%);
-  }
-  .sidebar {
-    background-color: lighten($light-bg-color, 5%);
-  }
-}
-
-/* Dark skin */
-.skin-dark {
-  background-color: $dark-bg-color;
-  color: $dark-text-color;
-
-  .navbar {
-    background-color: darken($dark-bg-color, 10%);
-  }
-  .sidebar {
-    background-color: darken($dark-bg-color, 5%);
-  }
-}

@@ -4,22 +4,6 @@
 @import './_app-wrapper';
 @import './_app-content';
 
-// Light Theme
-.theme-light {
-  body {
-    background-color: $body-bg-light;
-    color: $text-color-light;
-  }
-}
-
-// Dark Theme
-.theme-dark {
-  body {
-    background-color: $body-bg-dark;
-    color: $text-color-dark;
-  }
-}
-
 .app-main {
   position: relative;
   display: flex;
