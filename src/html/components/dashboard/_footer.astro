@@ -1,8 +1,8 @@
 ---
 const year = new Date().getFullYear();
+// import { initThemeToggler } from '../../../ts/util/index';
 ---
 
-<!--begin::Footer--><!--begin::Footer-->
 <footer class="app-footer">
   <!--begin::To the end-->
   <div class="float-end d-none d-sm-inline">Anything you want</div>
@@ -21,30 +21,10 @@ const year = new Date().getFullYear();
     <i id="theme-icon" class="bi"></i>
   </button>
   <!--end::Copyright-->
+
+  <!-- Initialize Theme Toggler -->
+  <script>
+    import  {initThemeToggler}  from '../../../ts/util/index';
+    initThemeToggler();
+  </script>
 </footer>
-<!--end::Footer-->
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const themeToggler = document.getElementById("theme-toggler");
-    const themeIcon = document.getElementById("theme-icon");
-    const savedTheme = localStorage.getItem("theme") || "dark";
-
-    document.body.setAttribute("data-bs-theme", savedTheme);
-
-    themeIcon.classList.add(savedTheme === "dark" ? "bi-sun" : "bi-moon");
-
-    themeToggler.addEventListener("click", () => {
-      const currentTheme = document.body.getAttribute("data-bs-theme");
-      const newTheme = currentTheme === "dark" ? "light" : "dark";
-
-      document.body.setAttribute("data-bs-theme", newTheme);
-      themeIcon.classList.remove(
-        currentTheme === "dark" ? "bi-sun" : "bi-moon",
-      );
-      themeIcon.classList.add(newTheme === "dark" ? "bi-sun" : "bi-moon");
-
-      localStorage.setItem("theme", newTheme);
-    });
-  });
-</script>

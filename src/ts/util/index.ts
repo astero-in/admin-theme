@@ -93,4 +93,28 @@ const slideToggle = (target: HTMLElement, duration = 500) => {
   slideUp(target, duration);
 };
 
-export { onDOMContentLoaded, slideUp, slideDown, slideToggle };
+/* THEME TOGGLER FUNCTION */
+const initThemeToggler = () => {
+  const themeToggler = document.getElementById('theme-toggler');
+  const themeIcon = document.getElementById('theme-icon');
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+
+  document.body.setAttribute('data-bs-theme', savedTheme);
+  themeIcon?.classList.add(savedTheme === 'dark' ? 'bi-sun' : 'bi-moon');
+
+  themeToggler?.addEventListener('click', () => {
+    const currentTheme = document.body.getAttribute('data-bs-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+    document.body.setAttribute('data-bs-theme', newTheme);
+    themeIcon?.classList.remove(currentTheme === 'dark' ? 'bi-sun' : 'bi-moon');
+    themeIcon?.classList.add(newTheme === 'dark' ? 'bi-sun' : 'bi-moon');
+
+    localStorage.setItem('theme', newTheme);
+  });
+};
+
+// Add the theme toggler initialization to DOMContentLoaded
+onDOMContentLoaded(initThemeToggler);
+
+export { onDOMContentLoaded, slideUp, slideDown, slideToggle, initThemeToggler };
