@@ -115,7 +115,7 @@ const initThemeToggler = () => {
     localStorage.setItem('theme', newTheme);
   });
 
-  function updateStyles(theme) {
+  function updateStyles(theme: String) {
     if (theme === 'dark') {
       document.body.style.backgroundColor = '#121212';
       document.body.style.color = '#ffffff';
