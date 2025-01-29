@@ -26,6 +26,18 @@ import Modal from "../modal.astro";
 
     <!--begin::End Navbar Links-->
     <ul class="navbar-nav ms-auto">
+      <!-- Theme Toggler -->
+      <li class="nav-item">
+        <a
+          id="theme-toggler"
+          class="nav-link"
+          style="cursor: pointer; font-size: 16px; transition: background-color 0.3s ease;"
+          role="button"
+          href="#"
+        >
+          <i id="theme-icon" class="bi"></i>
+      </a>
+      </li>
       <!--begin::Navbar Search-->
       <li class="nav-item">
         <!-- <a class="nav-link" data-widget="navbar-search" href="#" role="button"> -->
@@ -219,6 +231,10 @@ import Modal from "../modal.astro";
     <!--end::End Navbar Links-->
   </div>
   <!--end::Container-->
+  <script>
+    import  {initThemeToggler}  from '../../../ts/util/index';
+    initThemeToggler();
+  </script>
 </nav>
 <!--end::Header-->
 

@@ -100,6 +100,7 @@ const initThemeToggler = () => {
   const savedTheme = localStorage.getItem('theme') || 'dark';
 
   document.body.setAttribute('data-bs-theme', savedTheme);
+  updateStyles(savedTheme);
   themeIcon?.classList.add(savedTheme === 'dark' ? 'bi-sun' : 'bi-moon');
 
   themeToggler?.addEventListener('click', () => {
@@ -107,11 +108,22 @@ const initThemeToggler = () => {
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
 
     document.body.setAttribute('data-bs-theme', newTheme);
+    updateStyles(newTheme);
     themeIcon?.classList.remove(currentTheme === 'dark' ? 'bi-sun' : 'bi-moon');
     themeIcon?.classList.add(newTheme === 'dark' ? 'bi-sun' : 'bi-moon');
 
     localStorage.setItem('theme', newTheme);
   });
+
+  function updateStyles(theme: String) {
+    if (theme === 'dark') {
+      document.body.style.backgroundColor = '#121212';
+      document.body.style.color = '#ffffff';
+    } else {
+      document.body.style.backgroundColor = '#ffffff';
+      document.body.style.color = '#000000';
+    }
+  }
 };
 
 // Add the theme toggler initialization to DOMContentLoaded
