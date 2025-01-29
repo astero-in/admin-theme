@@ -1,6 +1,7 @@
 ---
 const { path } = Astro.props;
 const distPath = path;
+import Modal from "../modal.astro";
 ---
 
 <!--begin::Header-->
@@ -27,7 +28,8 @@ const distPath = path;
     <ul class="navbar-nav ms-auto">
       <!--begin::Navbar Search-->
       <li class="nav-item">
-        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+        <!-- <a class="nav-link" data-widget="navbar-search" href="#" role="button"> -->
+        <a class="nav-link" data-widget="navbar-search" data-bs-toggle="modal" data-bs-target="#searchModal" role="button">
           <i class="bi bi-search"></i>
         </a>
       </li>
@@ -219,3 +221,6 @@ const distPath = path;
   <!--end::Container-->
 </nav>
 <!--end::Header-->
+
+<!-- Import the Modal component -->
+<Modal />
