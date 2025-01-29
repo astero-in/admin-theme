@@ -3,6 +3,7 @@ import Head from "@components/_head.astro";
 import Footer from "../components/dashboard/_footer.astro";
 import Topbar from "@components/dashboard/_topbar.astro";
 import Sidenav from "@components/dashboard/_sidenav.astro";
+import Iconbar from "@components/dashboard/_iconbar.astro";
 import Scripts from "@components/_scripts.astro";
 
 const title = "AdminLTE v4 | Dashboard";
@@ -41,6 +42,7 @@ const page = "index";
   >
     <!--begin::App Wrapper-->
     <div class="app-wrapper">
+      <Iconbar path={path}/>
       <Topbar path={path} />
       <Sidenav path={path} mainPage={mainPage} page={page} />
       <!--begin::App Main-->

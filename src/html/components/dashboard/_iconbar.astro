@@ -1,0 +1,63 @@
+---
+// import '../styles/iconbar.scss';
+import {convertPathToHtml} from "../../../utils/index.js";
+const {path, mainPage, page} = Astro.props;
+const htmlPath = convertPathToHtml(path);
+---
+
+<aside class="iconbar">
+  <a href="/" class="brand-link text-decoration-none text-white">
+    <i class="bi bi-grid-fill brand-image"></i>
+    <span class="brand-text fw-light">AdminLTE 4</span>
+  </a>
+
+  <div class="user-panel mt-3 pb-3 mb-3">
+    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=100&h=100" alt="User Image">
+    <div class="info">
+      <a href="#" class="d-block text-decoration-none text-white">John Doe</a>
+    </div>
+  </div>
+
+  <nav>
+    <ul class="nav-iconbar">
+      <li class="nav-item">
+        <a href="/" class="nav-link active">
+          <i class="bi bi-speedometer2"></i>
+          <p>Dashboard</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/users" class="nav-link">
+          <i class="bi bi-people"></i>
+          <p>Users</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/products" class="nav-link">
+          <i class="bi bi-cart"></i>
+          <p>Products</p>
+          <span class="badge bg-danger rounded-pill">3</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/analytics" class="nav-link">
+          <i class="bi bi-graph-up"></i>
+          <p>Analytics</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/messages" class="nav-link">
+          <i class="bi bi-envelope"></i>
+          <p>Messages</p>
+          <span class="badge bg-warning rounded-pill">5</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/settings" class="nav-link">
+          <i class="bi bi-gear"></i>
+          <p>Settings</p>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</aside>
