@@ -93,5 +93,8 @@
     "terser": "^5.37.0",
     "tslib": "^2.8.1",
     "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "simplebar": "^6.3.0"
   }
 }
