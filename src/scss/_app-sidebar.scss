@@ -66,10 +66,7 @@
   .brand-text {
     margin-left: .5rem;
     color: rgba(var(--#{$prefix}emphasis-color-rgb), .8);
-    @include transition(
-      flex $lte-transition-speed $lte-transition-fn,
-      width $lte-transition-speed $lte-transition-fn
-    );
+    @include transition(flex $lte-transition-speed $lte-transition-fn, width $lte-transition-speed $lte-transition-fn);
     &:hover {
       color: var(--#{$prefix}emphasis-color);
     }
@@ -130,7 +127,7 @@
     // Hover and active states
     &.menu-open > .nav-link,
     &:hover > .nav-link,
-    > .nav-link:focus {
+    > .nav-link:focus  {
       color: var(--#{$lte-prefix}sidebar-hover-color);
       background-color: var(--#{$lte-prefix}sidebar-hover-bg);
     }
@@ -379,6 +376,7 @@
     animation-fill-mode: both;
   }
 
+
   .logo-xs {
     display: inline-block;
     visibility: visible;
@@ -442,10 +440,7 @@
 
 .sidebar-collapse:not(.sidebar-mini) {
   .app-sidebar {
-    margin-left: 
-    calc(
-      var(--#{$lte-prefix}sidebar-width) * -1
-    ); // stylelint-disable-line function-disallowed-list
+    margin-left: calc(var(--#{$lte-prefix}sidebar-width) * -1); // stylelint-disable-line function-disallowed-list
   }
 }
 
@@ -513,9 +508,7 @@
           top: 0;
           bottom: 0;
           max-height: 100vh;
-          margin-left: calc(
-            var(--#{$lte-prefix}sidebar-width) * -1
-          ); // stylelint-disable-line function-disallowed-list
+          margin-left: calc(var(--#{$lte-prefix}sidebar-width) * -1); // stylelint-disable-line function-disallowed-list
 
           .sidebar-wrapper {
             height: subtract(100vh, add($lte-app-header-height, 1px));
@@ -549,11 +542,7 @@
 .app-sidebar .brand-text,
 .app-sidebar .logo-xs,
 .app-sidebar .logo-xl {
-  @include transition(
-    margin-left $lte-transition-speed linear,
-    opacity $lte-transition-speed ease,
-    visibility $lte-transition-speed ease
-  );
+  @include transition(margin-left $lte-transition-speed linear, opacity $lte-transition-speed ease, visibility $lte-transition-speed ease);
 }
 
 // To prevent onload transition and animation
@@ -607,7 +596,3 @@ body:not(.app-loaded) {
   }
 }
 
-.nav-header {
-  font-weight: 700;
-  margin-bottom: .5rem;
-}
