@@ -1,8 +1,8 @@
-@import './variables.scss';
-@import './_app-header';
-@import './_app-sidebar';
-@import './_app-wrapper';
-@import './_app-content';
+@import "./variables";
+@import "./app-header";
+@import "./app-sidebar";
+@import "./app-wrapper";
+@import "./app-content";
 
 .app-main {
   position: relative;

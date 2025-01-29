@@ -21,18 +21,18 @@
   top: 9px;
   right: 5px;
   padding: 2px 4px;
-  font-size: 0.6rem;
+  font-size: .6rem;
   font-weight: 400;
 
   // Light Theme
   .theme-light & {
-    background-color: $badge-bg-light;
-    color: $badge-text-light;
+    color: #000;
+    background-color: #fff;
   }
 
   // Dark Theme
   .theme-dark & {
-    background-color: $badge-bg-dark;
-    color: $badge-text-dark;
+    color: #fff;
+    background-color: #000;
   }
 }

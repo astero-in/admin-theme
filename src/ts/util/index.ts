@@ -100,7 +100,7 @@ const initThemeToggler = () => {
   const savedTheme = localStorage.getItem('theme') || 'dark';
 
   document.body.setAttribute('data-bs-theme', savedTheme);
-  updateStyles(savedTheme);
+  updateStyles(savedTheme as 'dark' | 'light');
   themeIcon?.classList.add(savedTheme === 'dark' ? 'bi-sun' : 'bi-moon');
 
   themeToggler?.addEventListener('click', () => {
@@ -115,7 +115,7 @@ const initThemeToggler = () => {
     localStorage.setItem('theme', newTheme);
   });
 
-  function updateStyles(theme) {
+  function updateStyles(theme: 'dark' | 'light') {
     if (theme === 'dark') {
       document.body.style.backgroundColor = '#121212';
       document.body.style.color = '#ffffff';
