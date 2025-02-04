@@ -31,12 +31,13 @@ import Modal from "../modal.astro";
         <a
           id="theme-toggler"
           class="nav-link"
-          style="cursor: pointer; font-size: 16px; transition: background-color 0.3s ease;"
+          style="cursor: pointer;"
           role="button"
           href="#"
+          aria-label="Toggle theme"
         >
-          <i id="theme-icon" class="bi"></i>
-      </a>
+          <i id="theme-icon" class="bi" aria-hidden="true"></i>
+        </a>
       </li>
       <!--begin::Navbar Search-->
       <li class="nav-item">

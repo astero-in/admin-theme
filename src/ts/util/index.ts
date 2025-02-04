@@ -93,40 +93,58 @@ const slideToggle = (target: HTMLElement, duration = 500) => {
   slideUp(target, duration);
 };
 
-/* THEME TOGGLER FUNCTION */
-const initThemeToggler = () => {
-  const themeToggler = document.getElementById('theme-toggler');
+type Theme = 'dark' | 'light';
+
+const THEME_STORAGE_KEY = 'theme';
+const DEFAULT_THEME: Theme = 'dark';
+
+const getStoredTheme = (): Theme => {
+  return (localStorage.getItem(THEME_STORAGE_KEY) as Theme) || DEFAULT_THEME;
+};
+
+const setTheme = (theme: Theme) => {
+  document.body.setAttribute('data-bs-theme', theme);
+  localStorage.setItem(THEME_STORAGE_KEY, theme);
+
+  // Update icon
   const themeIcon = document.getElementById('theme-icon');
-  const savedTheme = localStorage.getItem('theme') || 'dark';
+  themeIcon?.classList.remove(theme === 'dark' ? 'bi-moon' : 'bi-sun');
+  themeIcon?.classList.add(theme === 'dark' ? 'bi-sun' : 'bi-moon');
 
-  document.body.setAttribute('data-bs-theme', savedTheme);
-  updateStyles(savedTheme as 'dark' | 'light');
-  themeIcon?.classList.add(savedTheme === 'dark' ? 'bi-sun' : 'bi-moon');
+  // Update styles
+  document.body.style.backgroundColor = theme === 'dark' ? '#121212' : '#ffffff';
+  document.body.style.color = theme === 'dark' ? '#ffffff' : '#000000';
+};
 
-  themeToggler?.addEventListener('click', () => {
-    const currentTheme = document.body.getAttribute('data-bs-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+const toggleTheme = () => {
+  const currentTheme = document.body.getAttribute('data-bs-theme') as Theme;
+  const newTheme: Theme = currentTheme === 'dark' ? 'light' : 'dark';
+  setTheme(newTheme);
+};
 
-    document.body.setAttribute('data-bs-theme', newTheme);
-    updateStyles(newTheme);
-    themeIcon?.classList.remove(currentTheme === 'dark' ? 'bi-sun' : 'bi-moon');
-    themeIcon?.classList.add(newTheme === 'dark' ? 'bi-sun' : 'bi-moon');
+const initThemeToggler = () => {
+  // Set initial theme
+  const savedTheme = getStoredTheme();
+  setTheme(savedTheme);
 
-    localStorage.setItem('theme', newTheme);
+  // Add click handler
+  const themeToggler = document.getElementById('theme-toggler');
+  themeToggler?.addEventListener('click', (e) => {
+    e.preventDefault();
+    toggleTheme();
   });
-
-  function updateStyles(theme: 'dark' | 'light') {
-    if (theme === 'dark') {
-      document.body.style.backgroundColor = '#121212';
-      document.body.style.color = '#ffffff';
-    } else {
-      document.body.style.backgroundColor = '#ffffff';
-      document.body.style.color = '#000000';
-    }
-  }
 };
 
 // Add the theme toggler initialization to DOMContentLoaded
 onDOMContentLoaded(initThemeToggler);
 
-export { onDOMContentLoaded, slideUp, slideDown, slideToggle, initThemeToggler };
+export {
+  onDOMContentLoaded,
+  slideUp,
+  slideDown,
+  slideToggle,
+  initThemeToggler,
+  setTheme,
+  toggleTheme,
+  getStoredTheme
+};
