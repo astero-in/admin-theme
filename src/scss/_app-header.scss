@@ -23,16 +23,12 @@
   padding: 2px 4px;
   font-size: .6rem;
   font-weight: 400;
+}
 
-  // Light Theme
-  .theme-light & {
-    color: #000;
-    background-color: #fff;
-  }
-
-  // Dark Theme
-  .theme-dark & {
-    color: #fff;
-    background-color: #000;
+.fixed-header {
+  .app-header {
+    position: sticky;
+    top: 0;
+    z-index: $lte-zindex-fixed-header;
   }
 }
