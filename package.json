@@ -7,6 +7,8 @@
   "main": "dist/js/adminlte.min.js",
   "scripts": {
     "dev": "npm-run-all --parallel watch docs-serve",
+    "build": "npm-run-all clean lint compile",
+    "serve": "astro --config src/config/astro.config.mjs dev --open --port 3000",
     "css": "npm-run-all css-compile css-prefix css-rtl css-minify",
     "css-compile": "sass --quiet --style expanded --load-path=\"node_modules\" --source-map --embed-sources --no-error-css src/scss/:dist/css/",
     "css-rtl": "cross-env NODE_ENV=RTL postcss --config src/config/postcss.config.mjs --dir \"dist/css\" --ext \".rtl.css\" \"dist/css/*.css\" \"!dist/css/*.min.css\" \"!dist/css/*.rtl.css\"",
@@ -29,7 +31,6 @@
     "lint": "npm-run-all --aggregate-output --continue-on-error --parallel js-lint css-lint docs-lint lockfile-lint",
     "clean": "rimraf dist",
     "compile": "npm-run-all docs-compile docs-format assets css js",
-    "build": "npm-run-all clean lint compile",
     "watch": "concurrently \"npm:watch-*\"",
     "watch-css-main": "nodemon --watch src/scss/ --ext scss --exec \"npm-run-all css-lint css-compile\"",
     "watch-css-dist": "nodemon --watch dist/css/ --ext css --ignore \"dist/css/*.rtl.*\" --exec \"npm run css-rtl\"",
