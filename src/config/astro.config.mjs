@@ -1,5 +1,4 @@
 import { defineConfig } from 'astro/config'
-import mdx from '@astrojs/mdx'
 
 // https://astro.build/config
 export default defineConfig({
@@ -12,7 +11,6 @@ export default defineConfig({
       theme: 'dark-plus'
     }
   },
-  integrations: [mdx()],
   srcDir: './src/html',
   cacheDir: './dist/pages',
   outDir: './dist/pages',
