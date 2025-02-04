@@ -29,7 +29,7 @@
     "lint": "npm-run-all --aggregate-output --continue-on-error --parallel js-lint css-lint docs-lint lockfile-lint",
     "clean": "rimraf dist",
     "compile": "npm-run-all docs-compile docs-format assets css js",
-    "production": "npm-run-all clean lint compile",
+    "build": "npm-run-all clean lint compile",
     "watch": "concurrently \"npm:watch-*\"",
     "watch-css-main": "nodemon --watch src/scss/ --ext scss --exec \"npm-run-all css-lint css-compile\"",
     "watch-css-dist": "nodemon --watch dist/css/ --ext css --ignore \"dist/css/*.rtl.*\" --exec \"npm run css-rtl\"",

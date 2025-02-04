@@ -26,7 +26,7 @@ SCSS has been used to increase code customizability.
 To compile the dist files you need Node.js/npm, clone/download the repo then:
 
 1. `npm install` (install npm deps)
-2. `npm run production` (compile css/js files)
+2. `npm run build` (compile css/js files)
 3. _Optional:_ `npm run dev` (developer mode, autocompile with browsersync support for live demo)
 
 
