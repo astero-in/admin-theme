@@ -29,7 +29,7 @@
   overflow: hidden;
   font-size: $navbar-brand-font-size;
   white-space: nowrap;
-  border-bottom: $lte-brand-link-border-buttom solid var(--#{$prefix}border-color);
+  // border-bottom: $lte-brand-link-border-buttom solid var(--#{$prefix}border-color);
   @include transition(width $lte-transition-speed $lte-transition-fn);
 
   .brand-link {
