@@ -1,7 +1,16 @@
+/**
+ * File watching script for development
+ * @module watch
+ */
+
 import { fileURLToPath } from 'url';
 import { runCommand, log } from './utils.mjs';
 import concurrently from 'concurrently';
 
+/**
+ * Command configurations for file watching
+ * @const {Object}
+ */
 const commands = {
   // Watch SCSS files and compile CSS
   cssmain: 'nodemon --watch src/scss/ --ext scss --exec \"npm run css\"',
@@ -13,6 +22,14 @@ const commands = {
   assets: 'nodemon --watch src/assets/ --exec \"npm run assets\"'
 };
 
+/**
+ * Starts concurrent file watchers for different file types
+ * Watches:
+ * - SCSS files for CSS changes
+ * - TypeScript files for JS changes
+ * - Assets for file changes
+ * @returns {Promise<void>}
+ */
 export async function watchAll() {
   try {
     log('====== 🎨 Watch mode started! ======', 'info');
@@ -69,7 +86,7 @@ export async function watchAll() {
   }
 }
 
-// Auto-start if run directly
+// Execute watch if script is run directly
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   watchAll();
 }

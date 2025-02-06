@@ -1,5 +1,5 @@
 ---
-import '../../scss/adminlte.scss';
+// import '../../scss/adminlte.scss';
 const { title, path, isRtl } = Astro.props;
 const cssPath = isRtl ? ".rtl" : "";
 ---
@@ -34,7 +34,7 @@ const cssPath = isRtl ? ".rtl" : "";
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" integrity="sha256-9kPW/n5nn53j4WMRYAxe9c1rCY96Oogo/MKSVdKzPmI=" crossorigin="anonymous">
 <!--end::Third Party Plugin(Bootstrap Icons)-->
 <!--begin::Required Plugin(AdminLTE)-->
-<!-- <link rel="stylesheet" href={path + "/css/adminlte" + cssPath + ".css"} /> -->
+<link rel="stylesheet" href={path + "/css/adminlte" + cssPath + ".css"} />
 
 <!--end::Required Plugin(AdminLTE)-->
 <!-- <script src="https://unpkg.com/@hotwired/turbo"></script> -->
