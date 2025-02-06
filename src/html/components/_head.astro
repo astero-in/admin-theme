@@ -1,7 +1,8 @@
 ---
-// import '../../scss/adminlte.scss';
 const { title, path, isRtl } = Astro.props;
 const cssPath = isRtl ? ".rtl" : "";
+const isDevelopment = import.meta.env.MODE === 'development';
+
 ---
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -42,9 +43,11 @@ const cssPath = isRtl ? ".rtl" : "";
   integrity="sha256-9kPW/n5nn53j4WMRYAxe9c1rCY96Oogo/MKSVdKzPmI="
   crossorigin="anonymous"
 />
-<!--end::Third Party Plugin(Bootstrap Icons)-->
 <!--begin::Required Plugin(AdminLTE)-->
 <link rel="stylesheet" href={path + "/css/adminlte" + cssPath + ".css"} />
 
 <!--end::Required Plugin(AdminLTE)-->
+
+{isDevelopment && <link rel="stylesheet" href="dist/css/dev.css"/>}
+
 <!-- <script src="https://unpkg.com/@hotwired/turbo"></script> -->
