@@ -15,7 +15,7 @@ async function startDevServer() {
 
     // Start file watchers
     logStep(2, 3, '👀 Starting file watchers...');
-    // watchAll();
+    watchAll();
     log('✅ File watchers active', 'success');
 
     // Start dev server
