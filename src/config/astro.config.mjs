@@ -15,6 +15,16 @@ export default defineConfig({
   cacheDir: './dist/pages',
   outDir: './dist/pages',
   vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          quietDeps: true,
+          logger: {
+            warn: () => {}
+          }
+        }
+      }
+    },
     server: {
       watch: {
         ignored: ['!**/dist/**'],
