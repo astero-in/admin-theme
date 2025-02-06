@@ -46,6 +46,7 @@
     "@typescript-eslint/eslint-plugin": "^8.23.0",
     "@typescript-eslint/parser": "^8.23.0",
     "astro": "^5.2.5",
+    "astro-icon": "^1.1.5",
     "autoprefixer": "^10.4.20",
     "bootstrap": "^5.3.3",
     "bundlewatch": "^0.4.0",
@@ -85,6 +86,7 @@
     "typescript": "^5.7.3"
   },
   "dependencies": {
+    "@iconify-json/tabler": "^1.2.15",
     "simplebar": "^6.3.0"
   }
 }

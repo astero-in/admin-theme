@@ -2,6 +2,7 @@
 import {convertPathToHtml} from "../../../utils/index.js";
 const {path, mainPage, page} = Astro.props;
 const htmlPath = convertPathToHtml(path);
+import { Icon } from 'astro-icon/components'
 ---
 
 <!--begin::Sidebar-->
@@ -18,7 +19,7 @@ const htmlPath = convertPathToHtml(path);
       />
       <!--end::Brand Image-->
       <!--begin::Brand Text-->
-      <span class="brand-text fw-light">Astero Admin</span>
+      <span class="brand-text fw-light">AsteroAdmin</span>
       <!--end::Brand Text-->
     </a>
     <!--end::Brand Link-->
@@ -39,7 +40,10 @@ const htmlPath = convertPathToHtml(path);
             href="#"
             class:list={["nav-link", mainPage === "dashboard" && "active"]}
           >
-            <i class="nav-icon bi bi-speedometer"></i>
+
+              <Icon name="tabler:dashboard" class="side-nav-icon" />
+
+
             <p>
               Dashboard
               <i class="nav-arrow bi bi-chevron-right"></i>

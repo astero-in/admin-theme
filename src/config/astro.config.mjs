@@ -1,7 +1,10 @@
 import { defineConfig } from 'astro/config'
+import icon from "astro-icon";
+import * as tabler from "@iconify-json/tabler";
 
 // https://astro.build/config
 export default defineConfig({
+  integrations: [icon({ collections: { tabler } })],
   build: {
     // Example: Generate `page.html` instead of `page/index.html` during build.
     format: 'file'
