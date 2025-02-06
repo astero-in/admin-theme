@@ -48,6 +48,7 @@ const isDevelopment = import.meta.env.MODE === 'development';
 
 <!--end::Required Plugin(AdminLTE)-->
 
-{isDevelopment && <link rel="stylesheet" href="dist/css/dev.css"/>}
+{isDevelopment && <!-- This is for quick development and will be removed in build -->}
+{isDevelopment && <link rel="stylesheet" href={path + "/css/dev" + cssPath + ".css"} />}
 
 <!-- <script src="https://unpkg.com/@hotwired/turbo"></script> -->
